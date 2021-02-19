@@ -1,0 +1,9 @@
+.MuiIconButton-root{
+    padding: 7px !important;
+}
+
+.MuiIconButton-colorPrimary{
+    color: #fff !important;
+    background-color: #3F51B5 !important;
+    border-radius: 4px !important;
+}

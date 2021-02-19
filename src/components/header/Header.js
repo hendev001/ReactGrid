@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -10,6 +10,11 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import HomeIcon from "@material-ui/icons/Home";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import SearchIcon from "@material-ui/icons/Search";
+import "./Header.css";
+
+import TextField from "@material-ui/core/TextField";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+  },
+  input_control: {
+    flexGrow: 4,
   },
 }));
 
@@ -38,19 +46,42 @@ function Header() {
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <HomeIcon />
-          </IconButton>
+        <Toolbar style={{ backgroundColor: "#f9f9f9", color: "#333" }}>
           <Typography variant="h6" className={classes.title}>
-            Admin
+            Winter Health
           </Typography>
-          <Button color="inherit" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+          <div className={classes.input_control}>
+            <TextField
+              id="outlined-basic"
+              size="small"
+              label="Classes or Events"
+              variant="outlined"
+              style={{ width: 400 }}
+            />
+            <IconButton variant="contained" color="primary">
+              <SearchIcon />
+            </IconButton>
+            {/* <Button
+              variant="contained"
+              color="secondary"
+              className={classes.button}
+              startIcon={<SearchIcon />}
+            ></Button> */}
+            <TextField
+              id="outlined-basic"
+              size="small"
+              label="Categories"
+              variant="outlined"
+              style={{ width: 400, marginLeft: "23px" }}
+            />
+          </div>
+          <ShoppingCartIcon/>
+          <Button
+            color="inherit"
+            aria-controls="simple-menu"
+            aria-haspopup="true"
+            onClick={handleClick}
+          >
             <AccountCircleIcon />
           </Button>
           <Menu

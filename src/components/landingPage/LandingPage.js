@@ -6,6 +6,10 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
 import Button from "@material-ui/core/Button";
+import Breadcrumbs from "@material-ui/core/Breadcrumbs";
+import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
+import "./LandingPage.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,29 +28,21 @@ function LandingPage() {
 
   return (
     <div className={classes.root}>
-      <div>
-        <ul
-          style={{
-            display: "flex",
-            listStyle: "none",
-            padding: "1px 2px",
-            margin: "2px 2px",
-          }}
-        >
-          <li style={{ marginRight: "5px" }}>
-            {" "}
-            <a href="#">Home |</a>{" "}
-          </li>
-          <li style={{ marginRight: "5px" }}>
-            {" "}
-            <a href="#">Search Results |</a>
-          </li>
-          <li style={{ marginRight: "5px" }}>
-            {" "}
-            <a href="#">Classes</a>
-          </li>
-        </ul>
-      </div>
+      <Grid container spacing={1}>
+        <Grid item xs={7}>
+          <Breadcrumbs aria-label="breadcrumb">
+            <Link color="inherit" href="/">
+              Home{" "}
+            </Link>
+            <Link color="inherit" href="/Search-page/">
+              Search
+            </Link>
+            <Link color="inherit" href="/details-page/">
+              Classes
+            </Link>
+          </Breadcrumbs>
+        </Grid>
+      </Grid>
       <Grid container spacing={1}>
         <Grid item xs={7} style={{ height: "720px" }}>
           <Paper style={{ minHeight: "700px" }}>
@@ -71,6 +67,14 @@ function LandingPage() {
               <span>AUDIENCE</span>
               <p>Enroll everyone attending</p>
             </div>
+            <Grid item xs>
+              <iframe style={{ width: "100%" }}>
+                <img
+                  src="https://miro.medium.com/max/4064/1*qYUvh-EtES8dtgKiBRiLsA.png"
+                  alt=""
+                />
+              </iframe>
+            </Grid>
           </Paper>
         </Grid>
 
@@ -83,26 +87,26 @@ function LandingPage() {
             }}
           >
             <Grid container spacing={2}>
-            <Grid item xs>
-            <span
-                style={{
-                  fontWeight: "bold",
-                  marginRight: "5px",
-                  textDecoration: "underline",
-                  cursor: "pointer",
-                }}
-              >
-                Free
-              </span>{" "}
-              <span style={{ fontSize: "12px" }}>per person</span>{" "}
-            </Grid>
-            <Grid item xs>
-           
-              <span style={{ fontSize: "12px", float:'right' }}>40 spot left</span>{" "}
+              <Grid item xs>
+                <span
+                  style={{
+                    fontWeight: "bold",
+                    marginRight: "5px",
+                    textDecoration: "underline",
+                    cursor: "pointer",
+                  }}
+                >
+                  Free
+                </span>{" "}
+                <span style={{ fontSize: "12px" }}>per person</span>{" "}
+              </Grid>
+              <Grid item xs>
+                <span style={{ fontSize: "12px", float: "right" }}>
+                  40 spot left
+                </span>{" "}
+              </Grid>
             </Grid>
 
-            </Grid>
-          
             <div style={{ lineHeight: "2px", marginBottom: "25px" }}>
               <h5 style={{ color: "purple" }}>SELECTED DATE & TIME</h5>
               <span>03/24/2021 @ 6:00PM - 8:00 PM</span>
